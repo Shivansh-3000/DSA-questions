@@ -1,0 +1,16 @@
+int majorityElement(vector<int>& nums) {
+        int k1=1,k2=nums[0],n = nums.size();
+        for(int i = 1;i<n;i++)
+        {
+            if(k1==0)
+            {
+                k2 = nums[i];k1 = 1;
+            }
+            else
+            {
+            if(nums[i]==k2) k1++;
+            else k1--;
+            }
+        }
+        return k2;
+    }
