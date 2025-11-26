@@ -1,0 +1,17 @@
+int lengthOfLongestSubstring(string s) {
+        if(s.length()==0) return 0;
+        int n = s.length(),fl = 0,maxm = 1;
+        unordered_map<char,int> mp;
+        for(int i = 0;i<n;i++)
+        {
+            if(mp.find(s[i])!=mp.end())
+            {
+                maxm = max(maxm, (i-fl));
+                fl = max(mp[s[i]]+1, fl);
+            }
+            mp[s[i]] = i;
+        }
+        maxm = max(maxm,(n)-fl);
+       
+        return maxm;
+    }
